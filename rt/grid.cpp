@@ -50,6 +50,17 @@ void Grid::nextGeneration() {
     cells = next;
 }
 
+bool Grid::isEmpty() const {
+    for (const auto& row : cells)
+        for (const auto& cell : row)
+            if (cell.getValue() == 1) return false;
+    return true;
+}
+
+bool Grid::operator==(const Grid& other) const {
+    return cells == other.cells;
+}
+
 std::ostream& operator<<(std::ostream& os, const Grid& grid) {
     for (const auto& row : grid.cells) {
         for (const auto& cell : row) {

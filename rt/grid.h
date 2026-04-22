@@ -12,6 +12,8 @@ public:
     int getHeight() const;
     int countLiveNeighbors(int x, int y) const;
     void nextGeneration();
+    bool isEmpty() const;
+    bool operator==(const Grid& other) const;
     friend std::ostream& operator<<(std::ostream& os, const Grid& grid);
 private:
     std::vector<std::vector<Cell>> cells;
