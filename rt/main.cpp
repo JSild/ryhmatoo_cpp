@@ -7,27 +7,27 @@
 int main() {
     std::cout << "Conway's Game of Life\n\n";
     std::cout << "Vali pattern:\n";
-    std::cout << "  1. Block       - 2x2 (stable)\n";
-    std::cout << "  2. R-pentomino - 5 rakku ebakorr. (-> stable)\n";
-    std::cout << "  3. Vertical    - 4 rakku veerus (-> stable)\n";
-    std::cout << "  4. Diehard     - sureb 130 gen jargi (death)\n";
-    std::cout << "  5. Blinker     - 3 rakku reas (repeat)\n";
-    std::cout << "  6. Boat        - 5 rakku paat (stable)\n";
+    std::cout << "  1. Blinker               - lihtne ostsillaator\n";
+    std::cout << "  2. Toad                  - 2-sammuline ostsillaator\n";
+    std::cout << "  3. Glider                - liigub diagonaalis\n";
+    std::cout << "  4. Lightweight Spaceship - liigub horisontaalselt\n";
+    std::cout << "  5. Diehard               - sureb umbes 130 generatsiooni jarel\n";
+    std::cout << "  6. R-pentomino           - pikk ja kaootiline areng\n";
     std::cout << "\nValik: ";
 
     int choice;
     std::cin >> choice;
 
-    Grid grid(40, 40);
+    Grid grid(20, 20);
 
     switch (choice) {
-        case 1: Templates::block(grid);      break;
-        case 2: Templates::rpentomino(grid); break;
-        case 3: Templates::vertical(grid);   break;
-        case 4: Templates::diehard(grid);    break;
-        case 5: Templates::blinker(grid);    break;
-        case 6: Templates::boat(grid);       break;
-        default: Templates::block(grid);     break;
+        case 1: Templates::blinker(grid);              break;
+        case 2: Templates::toad(grid);                 break;
+        case 3: Templates::glider(grid);               break;
+        case 4: Templates::lightweightSpaceship(grid); break;
+        case 5: Templates::diehard(grid);              break;
+        case 6: Templates::rpentomino(grid);           break;
+        default: Templates::blinker(grid);             break;
     }
 
     for (int gen = 0; ; gen++) {

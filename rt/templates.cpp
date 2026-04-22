@@ -11,44 +11,44 @@ void Templates::apply(Grid& grid, const std::vector<std::pair<int,int>>& offsets
     }
 }
 
-// ##   →  stable
-// ##
-void Templates::block(Grid& grid) {
-    apply(grid, {{0,0},{1,0},{0,1},{1,1}});
+// ###  <->   #   simple oscillator
+//            #
+//            #
+void Templates::blinker(Grid& grid) {
+    apply(grid, {{-1,0},{0,0},{1,0}});
 }
 
-// .##  →  stable (pikk evolutsioon)
-// ##.
+// .###   period-2 oscillator
+// ###.
+void Templates::toad(Grid& grid) {
+    apply(grid, {{0,0},{1,0},{2,0},{-1,1},{0,1},{1,1}});
+}
+
 // .#.
-void Templates::rpentomino(Grid& grid) {
-    apply(grid, {{0,-1},{1,-1},{-1,0},{0,0},{0,1}});
+// ..#   moves diagonally
+// ###
+void Templates::glider(Grid& grid) {
+    apply(grid, {{0,-1},{1,0},{-1,1},{0,1},{1,1}});
 }
 
-// #.  →  stable
-// #.
-// #.
-// ##
-void Templates::vertical(Grid& grid) {
-    apply(grid, {{0,-2},{0,-1},{0,0},{1,0}});
+// #..#.   moves horizontally
+// ....#
+// #...#
+// .####
+void Templates::lightweightSpaceship(Grid& grid) {
+    apply(grid, {{-2,-1},{1,-1},{2,0},{-2,1},{2,1},{-1,2},{0,2},{1,2},{2,2}});
 }
 
-// ......#.  →  death pärast 130 generatsiooni
-// ##......
+// ......#.
+// ##......   dies after many generations
 // .#...###
 void Templates::diehard(Grid& grid) {
     apply(grid, {{2,-1},{-4,0},{-3,0},{-3,1},{1,1},{2,1},{3,1}});
 }
 
-// ###  ↔  #   →  repeat (periood 2)
-//          #
-//          #
-void Templates::blinker(Grid& grid) {
-    apply(grid, {{-1,0},{0,0},{1,0}});
-}
-
-// ##.  →  stable
-// #.#
+// .##
+// ##.   famous long-lasting pattern
 // .#.
-void Templates::boat(Grid& grid) {
-    apply(grid, {{-1,-1},{0,-1},{-1,0},{1,0},{0,1}});
+void Templates::rpentomino(Grid& grid) {
+    apply(grid, {{0,-1},{1,-1},{-1,0},{0,0},{0,1}});
 }
